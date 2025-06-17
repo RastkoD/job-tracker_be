@@ -13,4 +13,13 @@ const getAllJobs = async () => {
   return data;
 };
 
-module.exports = { getAllJobs };
+const addJob = async ({ position, company }) => {
+  const { data, error } = await supabase
+    .from("jobs")
+    .insert([{ position, company }]);
+
+  if (error) throw new Error(error.message);
+  return data;
+};
+
+module.exports = { getAllJobs, addJob };
