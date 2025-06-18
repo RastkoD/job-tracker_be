@@ -13,10 +13,10 @@ const getAllJobs = async () => {
   return data;
 };
 
-const addJob = async ({ position, company }) => {
+const addJob = async ({ position, company, status, notes, applied_date }) => {
   const { data, error } = await supabase
     .from("jobs")
-    .insert([{ position, company }]);
+    .insert([{ position, company, status, notes, applied_date }]);
 
   if (error) throw new Error(error.message);
   return data;
