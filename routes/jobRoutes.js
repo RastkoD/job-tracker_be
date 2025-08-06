@@ -1,4 +1,9 @@
-const { getAllJobs, addJob, deleteJobById } = require("../services/jobService");
+const {
+  getAllJobs,
+  addJob,
+  deleteJobById,
+  updateJob,
+} = require("../services/jobService");
 const express = require("express");
 const router = express.Router();
 
@@ -25,6 +30,15 @@ router.delete("/:id", async (req, res) => {
     const id = req.params.id;
     await deleteJobById(id);
     res.status(204).send();
+  } catch (error) {
+    res.status(500).json({ error: error.message });
+  }
+});
+
+router.put("/:id", async (req, res) => {
+  try {
+    const updatedJob = await updateJob(req.params.id, req.body);
+    res.json(updatedJob[0]);
   } catch (error) {
     res.status(500).json({ error: error.message });
   }

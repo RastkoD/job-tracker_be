@@ -28,4 +28,17 @@ const deleteJobById = async (id) => {
   if (error) throw new Error(error.message);
 };
 
-module.exports = { getAllJobs, addJob, deleteJobById };
+const updateJob = async (
+  id,
+  { position, company, status, notes, applied_date }
+) => {
+  const { data, error } = await supabase
+    .from("jobs")
+    .update({ position, company, status, notes, applied_date })
+    .eq("id", id);
+
+  if (error) throw new Error(error.message);
+  return data;
+};
+
+module.exports = { getAllJobs, addJob, deleteJobById, updateJob };
