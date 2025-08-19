@@ -35,7 +35,8 @@ const updateJob = async (
   const { data, error } = await supabase
     .from("jobs")
     .update({ position, company, status, notes, applied_date })
-    .eq("id", id);
+    .eq("id", id)
+    .select();
 
   if (error) throw new Error(error.message);
   return data;
