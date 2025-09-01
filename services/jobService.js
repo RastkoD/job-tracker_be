@@ -7,7 +7,10 @@ const supabase = createClient(
 );
 
 const getAllJobs = async () => {
-  const { data, error } = await supabase.from("jobs").select("*");
+  const { data, error } = await supabase
+    .from("jobs")
+    .select("*")
+    .order("applied_date", { ascending: false });
 
   if (error) throw new Error(error.message);
   return data;
