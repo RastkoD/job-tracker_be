@@ -15,6 +15,17 @@ const auth = (req, res, next) => {
   next();
 };
 
+router.post("/login", (req, res) => {
+  const { password } = req.body;
+  if (password === process.env.APP_PASSWORD) {
+    return res.json({ success: true });
+  } else {
+    return res
+      .status(401)
+      .json({ success: false, error: "Incorrect password" });
+  }
+});
+
 router.get("/", async (req, res) => {
   try {
     const jobs = await getAllJobs();
