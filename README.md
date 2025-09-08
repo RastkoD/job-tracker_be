@@ -13,6 +13,7 @@ It provides a simple REST API for managing job applications and persists data wi
 - `POST /api/jobs` – Add a new job application
 - `PUT /api/jobs/:id` – Update an existing job
 - `DELETE /api/jobs/:id` – Remove a job
+- `POST /api/jobs/login` – Authenticate with app password
 
 ## Tech
 
