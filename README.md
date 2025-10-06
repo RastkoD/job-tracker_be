@@ -4,19 +4,26 @@
 
 ### :rocket: [API Live](https://job-tracker-be.onrender.com/api/jobs)
 
-This is the backend service for JobTrckr.  
-It provides a simple REST API for managing job applications and persists data with Supabase.
+Backend REST API for JobTrckr - a job application tracking system. Handles authentication, CRUD operations, and data persistence with Supabase.
 
-## Endpoints
+## 📡 API Endpoints
 
-- `GET /api/jobs` – Fetch all job applications
-- `POST /api/jobs` – Add a new job application
-- `PUT /api/jobs/:id` – Update an existing job
-- `DELETE /api/jobs/:id` – Remove a job
-- `POST /api/jobs/login` – Authenticate with app password
+| Method   | Endpoint          | Description                |
+| -------- | ----------------- | -------------------------- |
+| `GET`    | `/api/jobs`       | Fetch all job applications |
+| `POST`   | `/api/jobs`       | Add a new job application  |
+| `PUT`    | `/api/jobs/:id`   | Update an existing job     |
+| `DELETE` | `/api/jobs/:id`   | Remove a job               |
+| `POST`   | `/api/jobs/login` | Authenticate user          |
 
-## Tech
+## 🛠️ Tech Stack
 
-- **Express.js** for routing
-- **Supabase** as database
-- **CORS + dotenv** for config and cross-origin
+- **Express.js** - Web framework and routing
+- **Supabase** - PostgreSQL database
+- **CORS** - Cross-origin resource sharing
+- **dotenv** - Environment configuration
+
+## 🔗 Frontend
+
+The frontend application for this API can be found here:  
+[JobTrckr Frontend](https://github.com/RastkoD/job-tracker_fe)
